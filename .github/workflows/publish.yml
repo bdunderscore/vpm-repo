@@ -25,12 +25,11 @@ jobs:
       - name: Build modular-avatar repository
         uses: bdunderscore/vpm-repo-list-generator@dist
         with:
-          output: out/vpm.json
+          output: out
           repository: bdunderscore/modular-avatar
-          include_prereleases: true
           package: net.fushizen.modular-avatar
-          #repo_url: https://vpm.fushizen.net/vpm.json
           repo_url: https://bdunderscore.github.io/vpm-repo/vpm.json
+          prerelease_repo_url: https://bdunderscore.github.io/vpm-repo/vpm-prerelease.json
           repo_author: bd_
           repo_name: bd_
           token: ${{ secrets.GITHUB_TOKEN }}
