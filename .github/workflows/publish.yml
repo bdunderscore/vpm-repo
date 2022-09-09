@@ -32,6 +32,7 @@ jobs:
           repo_url: https://vpm.fushizen.net/vpm.json
           repo_author: bd_
           repo_name: bd_
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
