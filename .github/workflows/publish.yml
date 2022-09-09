@@ -1,0 +1,45 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  pages: write
+  contents: read
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy repository manifest
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Setup
+        run: mkdir out
+      - name: Build modular-avatar repository
+        uses: bdunderscore/vpm-repo-list-generator@dist
+        with:
+          output: out/vpm.json
+          repository: bdunderscore/modular-avatar
+          include_prereleases: false
+          package: net.fushizen.modular-avatar
+          repo_url: https://vpm.fushizen.net/vpm.json
+          repo_author: bd_
+          repo_name: bd_
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
