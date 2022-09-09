@@ -27,7 +27,7 @@ jobs:
         with:
           output: out/vpm.json
           repository: bdunderscore/modular-avatar
-          include_prereleases: false
+          include_prereleases: true
           package: net.fushizen.modular-avatar
           #repo_url: https://vpm.fushizen.net/vpm.json
           repo_url: https://bdunderscore.github.io/vpm-repo/vpm.json
