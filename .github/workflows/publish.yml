@@ -28,7 +28,7 @@ jobs:
         with:
           output: out
           repository: bdunderscore/modular-avatar
-          package: net.fushizen.modular-avatar
+          package: nadena.dev.modular-avatar
           repo_url: https://vpm.nadena.dev/vpm.json
           prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
           repo_author: bd_
