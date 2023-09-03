@@ -36,6 +36,19 @@ jobs:
           repo_id: dev.nadena.vpm
           prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build NDMF repository
+        uses: bdunderscore/vpm-repo-list-generator@dist
+        with:
+          output: out
+          repository: bdunderscore/ndmf
+          package: nadena.dev.ndmf
+          repo_url: https://vpm.nadena.dev/vpm.json
+          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
+          repo_author: bd_
+          repo_name: bd_
+          repo_id: dev.nadena.vpm
+          prerelease_repo_id: dev.nadena.prerelease
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
