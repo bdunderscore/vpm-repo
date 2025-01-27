@@ -63,7 +63,7 @@ jobs:
           prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
