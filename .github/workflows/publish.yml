@@ -22,7 +22,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Setup
-        run: mkdir out
+        run: mkdir out out-reso
       - name: Build modular-avatar repository
         uses: bdunderscore/vpm-repo-list-generator@dist
         with:
@@ -62,6 +62,21 @@ jobs:
           repo_id: dev.nadena.vpm
           prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build resonite repository
+        uses: bdunderscore/vpm-repo-list-generator@dist
+        with:
+          output: out-reso
+          repository: bdunderscore/modular-avatar-resonite
+          package: nadena.dev.modular-avatar-resonite
+          repo_url: https://vpm.nadena.dev/vpm-reso.json
+          prerelease_repo_url: https://vpm.nadena.dev/vpm-reso.json
+          repo_author: bd_
+          repo_name: bd_
+          repo_id: dev.nadena.vpm.resonite
+          prerelease_repo_id: dev.nadena.vpm.resonite
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: mv out-reso/vpm-prerelease.json out/vpm-reso.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
