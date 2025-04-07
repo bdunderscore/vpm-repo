@@ -67,7 +67,7 @@ jobs:
         with:
           output: out-reso
           repository: bdunderscore/modular-avatar-resonite
-          package: nadena.dev.modular-avatar-resonite
+          package: nadena.dev.modular-avatar.resonite
           repo_url: https://vpm.nadena.dev/vpm-reso-dup.json
           prerelease_repo_url: https://vpm.nadena.dev/vpm-reso.json
           repo_author: bd_
