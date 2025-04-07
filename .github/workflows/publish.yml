@@ -68,7 +68,7 @@ jobs:
           output: out-reso
           repository: bdunderscore/modular-avatar-resonite
           package: nadena.dev.modular-avatar-resonite
-          repo_url: https://vpm.nadena.dev/vpm-reso.json
+          repo_url: https://vpm.nadena.dev/vpm-reso-dup.json
           prerelease_repo_url: https://vpm.nadena.dev/vpm-reso.json
           repo_author: bd_
           repo_name: bd_
@@ -77,7 +77,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: ls -lR .
 
-      - run: mv out-reso/vpm-prerelease.json out/vpm-reso.json
+      - run: mv out-reso/vpm-reso.json out/vpm-reso.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
