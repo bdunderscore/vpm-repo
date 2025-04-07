@@ -75,6 +75,7 @@ jobs:
           repo_id: dev.nadena.vpm.resonite
           prerelease_repo_id: dev.nadena.vpm.resonite
           token: ${{ secrets.GITHUB_TOKEN }}
+      - run: ls -lR .
 
       - run: mv out-reso/vpm-prerelease.json out/vpm-reso.json
       - name: Setup Pages
