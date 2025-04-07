@@ -71,7 +71,7 @@ jobs:
           repo_url: https://vpm.nadena.dev/vpm-reso-dup.json
           prerelease_repo_url: https://vpm.nadena.dev/vpm-reso.json
           repo_author: bd_
-          repo_name: bd_
+          repo_name: Modular Avatar - Resonite Support
           repo_id: dev.nadena.vpm.resonite
           prerelease_repo_id: dev.nadena.vpm.resonite
           token: ${{ secrets.GITHUB_TOKEN }}
