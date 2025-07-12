@@ -26,18 +26,18 @@ jobs:
 
 
 
-      - name: Setup for test repo
+      - name: Laod prior version of repository
         run: |
           mkdir out-test
-          #curl -f -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || rm -f out-test/vpm-test.json
+          #curl -f -o out/vpm.json https://vpm.nadena.dev/vpm.json || rm -f out/vpm.json
       
       - name: Build NDMF repository
         uses: bdunderscore/vpm-repo-list-generator@test-dist
         with:
-          output: out-test
+          output: out
           repository: bdunderscore/ndmf
           package: nadena.dev.ndmf
-          repo_url: https://vpm.nadena.dev/vpm-test.json
+          repo_url: https://vpm.nadena.dev/vpm.json
           doc_url: https://ndmf.nadena.dev
           repo_author: bd_
           repo_name: bd_
@@ -52,25 +52,12 @@ jobs:
           repository: bdunderscore/modular-avatar
           package: nadena.dev.modular-avatar
           repo_url: https://vpm.nadena.dev/vpm.json
-          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
+          doc_url: "https://modular-avatar.nadena.dev/?lang=auto"
           repo_author: bd_
           repo_name: bd_
           repo_id: dev.nadena.vpm
-          prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build NDMF repository
-        uses: bdunderscore/vpm-repo-list-generator@dist
-        with:
-          output: out
-          repository: bdunderscore/ndmf
-          package: nadena.dev.ndmf
-          repo_url: https://vpm.nadena.dev/vpm.json
-          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
-          repo_author: bd_
-          repo_name: bd_
-          repo_id: dev.nadena.vpm
-          prerelease_repo_id: dev.nadena.prerelease
-          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build misc tools repository
         uses: bdunderscore/vpm-repo-list-generator@dist
         with:
@@ -78,12 +65,11 @@ jobs:
           repository: bdunderscore/misc-vrc-tools
           package: nadena.dev.misc-vrc-tools
           repo_url: https://vpm.nadena.dev/vpm.json
-          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
           repo_author: bd_
           repo_name: bd_
           repo_id: dev.nadena.vpm
-          prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build resonite repository
         uses: bdunderscore/vpm-repo-list-generator@dist
         with:
@@ -91,17 +77,16 @@ jobs:
           repository: bdunderscore/modular-avatar-resonite
           package: nadena.dev.modular-avatar.resonite
           repo_url: https://vpm.nadena.dev/vpm.json
-          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
           repo_author: bd_
           repo_name: bd_
           repo_id: dev.nadena.vpm
-          prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: ls -lR .
 
-      - run: cp out/vpm-prerelease.json out/vpm-reso.json
-      - run: cp out-test/vpm-test.json out
+      - run: cp out/vpm.json out/vpm-reso.json
+      - run: cp out/vpm.json out/vpm-prerelease.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
