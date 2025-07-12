@@ -75,9 +75,31 @@ jobs:
           repo_id: dev.nadena.vpm
           prerelease_repo_id: dev.nadena.prerelease
           token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Setup for test repo
+        run: |
+          mkdir out-test
+          curl -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || true
+      
+      - name: Build NDMF repository
+        uses: bdunderscore/vpm-repo-list-generator@test-dist
+        with:
+          output: out-test
+          repository: bdunderscore/ndmf
+          package: nadena.dev.ndmf
+          repo_url: https://vpm.nadena.dev/vpm-test.json
+          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
+          repo_author: bd_
+          repo_name: bd_
+          repo_id: dev.nadena.vpm
+          prerelease_repo_id: dev.nadena.prerelease
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - run: ls -lR .
 
       - run: cp out/vpm-prerelease.json out/vpm-reso.json
+      - run: cp out-test/vpm-test.json out
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
