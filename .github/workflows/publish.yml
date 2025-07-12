@@ -23,6 +23,29 @@ jobs:
     steps:
       - name: Setup
         run: mkdir out out-reso
+
+
+
+      - name: Setup for test repo
+        run: |
+          mkdir out-test
+          curl -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || rm -f out-test/vpm-test.json
+      
+      - name: Build NDMF repository
+        uses: bdunderscore/vpm-repo-list-generator@test-dist
+        with:
+          output: out-test
+          repository: bdunderscore/ndmf
+          package: nadena.dev.ndmf
+          repo_url: https://vpm.nadena.dev/vpm-test.json
+          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
+          repo_author: bd_
+          repo_name: bd_
+          repo_id: dev.nadena.vpm
+          prerelease_repo_id: dev.nadena.prerelease
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
       - name: Build modular-avatar repository
         uses: bdunderscore/vpm-repo-list-generator@dist
         with:
@@ -69,26 +92,6 @@ jobs:
           repository: bdunderscore/modular-avatar-resonite
           package: nadena.dev.modular-avatar.resonite
           repo_url: https://vpm.nadena.dev/vpm.json
-          prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
-          repo_author: bd_
-          repo_name: bd_
-          repo_id: dev.nadena.vpm
-          prerelease_repo_id: dev.nadena.prerelease
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-
-      - name: Setup for test repo
-        run: |
-          mkdir out-test
-          curl -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || true
-      
-      - name: Build NDMF repository
-        uses: bdunderscore/vpm-repo-list-generator@test-dist
-        with:
-          output: out-test
-          repository: bdunderscore/ndmf
-          package: nadena.dev.ndmf
-          repo_url: https://vpm.nadena.dev/vpm-test.json
           prerelease_repo_url: https://vpm.nadena.dev/vpm-prerelease.json
           repo_author: bd_
           repo_name: bd_
