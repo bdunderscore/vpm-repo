@@ -29,7 +29,7 @@ jobs:
       - name: Setup for test repo
         run: |
           mkdir out-test
-          curl -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || rm -f out-test/vpm-test.json
+          curl -f -o out-test/vpm-test.json https://vpm.nadena.dev/vpm-test.json || rm -f out-test/vpm-test.json
       
       - name: Build NDMF repository
         uses: bdunderscore/vpm-repo-list-generator@test-dist
