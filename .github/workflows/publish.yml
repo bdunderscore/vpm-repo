@@ -29,7 +29,7 @@ jobs:
       - name: Laod prior version of repository
         run: |
           mkdir out-test
-          #curl -f -o out/vpm.json https://vpm.nadena.dev/vpm.json || rm -f out/vpm.json
+          curl -f -o out/vpm.json https://vpm.nadena.dev/vpm.json || rm -f out/vpm.json
       
       - name: Build NDMF repository
         uses: bdunderscore/vpm-repo-list-generator@test-dist
