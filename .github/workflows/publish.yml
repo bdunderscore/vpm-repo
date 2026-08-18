@@ -39,7 +39,7 @@ jobs:
           output: out
           repository: bdunderscore/ndmf
           package: nadena.dev.ndmf
-          repo_url: https://vpm.nadena.dev/vpm.json
+          repo_url: https://vpm-src.nadena.dev/vpm.json
           doc_url: https://ndmf.nadena.dev
           repo_author: bd_
           repo_name: bd_
@@ -53,7 +53,7 @@ jobs:
           output: out
           repository: bdunderscore/modular-avatar
           package: nadena.dev.modular-avatar
-          repo_url: https://vpm.nadena.dev/vpm.json
+          repo_url: https://vpm-src.nadena.dev/vpm.json
           doc_url: "https://modular-avatar.nadena.dev/?lang=auto"
           repo_author: bd_
           repo_name: bd_
@@ -66,7 +66,7 @@ jobs:
           output: out
           repository: bdunderscore/misc-vrc-tools
           package: nadena.dev.misc-vrc-tools
-          repo_url: https://vpm.nadena.dev/vpm.json
+          repo_url: https://vpm-src.nadena.dev/vpm.json
           repo_author: bd_
           repo_name: bd_
           repo_id: dev.nadena.vpm
@@ -78,7 +78,7 @@ jobs:
           output: out
           repository: bdunderscore/modular-avatar-resonite
           package: nadena.dev.modular-avatar.resonite
-          repo_url: https://vpm.nadena.dev/vpm.json
+          repo_url: https://vpm-src.nadena.dev/vpm.json
           repo_author: bd_
           repo_name: bd_
           repo_id: dev.nadena.vpm
